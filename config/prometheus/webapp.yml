@@ -1,0 +1,11 @@
+groups:
+  - name: webapp_alerts
+    rules:
+      - alert: WebappDown
+        expr: probe_success == 0
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Webapp is down"
+          description: "The webapp at {{ $labels.instance }} has been unreachable for over 1 minute."

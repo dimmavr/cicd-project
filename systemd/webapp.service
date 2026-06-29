@@ -1,0 +1,14 @@
+[Unit]
+Description=Minimal bash netcat web server
+After=network.target
+
+[Service]
+Type=simple
+User=webapp
+Group=webapp
+ExecStart=/opt/webapp/webapp.sh
+Restart=always
+RestartSec=2
+
+[Install]
+WantedBy=multi-user.target
